@@ -1,13 +1,15 @@
-from Grid import Grid
+ from Grid import Grid
 from Agent import Agent
 from Task import Task
 from TaskList import TaskList
+from Score import Score
 
 grid1 = Grid(5,5)
 grid2 = Grid(5,5)
 agent1=Agent(grid1,3,3)
 agent2=Agent(grid1,1,1)
 item1=Task(grid2,2,2)
+item2=Task(grid2,4,4)
 
 Grid.printGrid(grid1)
 Grid.printGrid(grid2)
@@ -27,22 +29,28 @@ while True:
                     break
                 elif(x=='u'):
                     a.move_up()
+                    Score.checkScore(a,grid2)
                     Grid.printGrid(grid1)
                     Grid.printGrid(grid2)
                 elif(x=='d'):
                     a.move_down()
+                    Score.checkScore(a,grid2)
                     Grid.printGrid(grid1)
                     Grid.printGrid(grid2)
                 elif(x=='l'):
                     a.move_left()
+                    Score.checkScore(a,grid2)
                     Grid.printGrid(grid1)
                     Grid.printGrid(grid2)
                 elif(x=='r'):
                     a.move_right()
+                    Score.checkScore(a,grid2)
                     Grid.printGrid(grid1)
                     Grid.printGrid(grid2)
                 else:
                     print("Wrong command. Try again.")
-
+        print(TaskList.TaskList)
+        for b in Agent.AgentList:
+            print(b.score)
     else:
         print("Wrong command. Try again.")
