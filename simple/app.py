@@ -1,4 +1,4 @@
- from Grid import Grid
+from Grid import Grid
 from Agent import Agent
 from Task import Task
 from TaskList import TaskList
