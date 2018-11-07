@@ -17,6 +17,7 @@ class Task:
         self.grid.cells[row][col]=1
         TaskList(self)
 
-    def removeItem(self):
+    def removeTask(self):
         self.grid.cells[self.row][self.col]=0
+        TaskList.TaskList.remove(self)
         del self
