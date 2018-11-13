@@ -1,4 +1,4 @@
-  class Agent:
+class Agent:
 
     new_id = -1
     AgentList=[]
