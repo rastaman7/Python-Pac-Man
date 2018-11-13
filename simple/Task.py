@@ -1,4 +1,6 @@
 from TaskList import TaskList
+from Grid import Grid
+import random
 
 class Task:
     new_id = -1
@@ -21,3 +23,11 @@ class Task:
         self.grid.cells[self.row][self.col]=0
         TaskList.TaskList.remove(self)
         del self
+
+    def crateTask(grid1, grid2):
+        while True:
+            r=random.randint(0,Grid.row_num-1)
+            c=random.randint(0,Grid.col_num-1)
+            if grid1.cells[r][c]==0 and grid2.cells[r][c]==0:
+                Task(grid2,r,c)
+                break
