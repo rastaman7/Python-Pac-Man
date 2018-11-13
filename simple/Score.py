@@ -10,3 +10,4 @@ class Score:
                 if b.row==agent.row and b.col==agent.col:
                     agent.earn_score()
                     b.removeTask()
+                    Task.crateTask(agent.grid, taskgrid)
