@@ -4,12 +4,13 @@ from Task import Task
 from TaskList import TaskList
 from Score import Score
 
-grid1 = Grid(5,5)
-grid2 = Grid(5,5)
-agent1=Agent(grid1,3,3)
-agent2=Agent(grid1,1,1)
-item1=Task(grid2,2,2)
-item2=Task(grid2,4,4)
+
+grid1 = Grid()
+grid2 = Grid()
+Agent(grid1,3,3)
+Agent(grid1,1,1)
+Task(grid2,2,2)
+Task(grid2,4,4)
 
 Grid.printGrid(grid1)
 Grid.printGrid(grid2)
