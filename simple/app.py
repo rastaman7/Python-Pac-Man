@@ -7,10 +7,12 @@ from Score import Score
 
 grid1 = Grid()
 grid2 = Grid()
+Agent(grid1,2,1)
 Agent(grid1,3,3)
-Agent(grid1,1,1)
 Task(grid2,2,2)
 Task(grid2,4,4)
+
+Agent.agentView()
 
 Grid.printGrid(grid1)
 Grid.printGrid(grid2)
@@ -50,8 +52,10 @@ while True:
                     Grid.printGrid(grid2)
                 else:
                     print("Wrong command. Try again.")
+        Agent.agentView()
         print(TaskList.TaskList)
         for b in Agent.AgentList:
             print(b.score)
+            b.printView()
     else:
         print("Wrong command. Try again.")
