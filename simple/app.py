@@ -56,6 +56,7 @@ while True:
         print(TaskList.TaskList)
         for b in Agent.AgentList:
             print(b.score)
-            b.printView()
+            b.printAgentView()
+            b.printTaskView()
     else:
         print("Wrong command. Try again.")
