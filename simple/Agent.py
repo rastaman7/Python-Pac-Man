@@ -78,16 +78,16 @@ class Agent:
             self.col=self.col-1
             self.grid.cells[self.row][self.col]=1
             self.grid.cells[self.row][self.col+1]=0
-        else:
-            print("unable to move left")
+        #else:
+            #print("unable to move left")
 
     def move_right(self):
         if self.col<self.grid.col_num-1 and self.grid.cells[self.row][self.col+1] != 1:
             self.col=self.col+1
             self.grid.cells[self.row][self.col]=1
             self.grid.cells[self.row][self.col-1]=0
-        else:
-            print("unable to move right")
+        #else:
+            #print("unable to move right")
 
     def earn_score(self):
         self.score=self.score+1
