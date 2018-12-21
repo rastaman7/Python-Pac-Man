@@ -13,91 +13,47 @@ class Agent:
         Agent.new_id += 1
         return Agent.new_id
 
-    def agentView():
+     def agentView():
         for a in Agent.AgentList:
             a.agentview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
             a.taskview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
             if a.row==0:
-                a.agentview[0]=[-1,-1,-1,-1,-1]
-                a.agentview[1]=[-1,-1,-1,-1,-1]
-                a.taskview[0]=[-1,-1,-1,-1,-1]
-                a.taskview[1]=[-1,-1,-1,-1,-1]
+                for j in range(Agent.view_col):
+                    a.agentview[0][j]=-1
+                    a.agentview[1][j]=-1
+                    a.taskview[0][j]=-1
+                    a.taskview[1][j]=-1
             if a.row==1:
-                a.agentview[0]=[-1,-1,-1,-1,-1]
-                a.agentview[Agent.view_row-1]=[-1,-1,-1,-1,-1]
-                a.taskview[0]=[-1,-1,-1,-1,-1]
-                a.taskview[Agent.view_row-1]=[-1,-1,-1,-1,-1]
+                for j in range(Agent.view_col):
+                    a.agentview[0][j]=-1
+                    a.agentview[Agent.view_row-1][j]=-1
+                    a.taskview[0][j]=-1
+                    a.taskview[Agent.view_row-1][j]=-1
+
             if a.row==Grid.row_num-1:
-                a.agentview[Agent.view_row-2]=[-1,-1,-1,-1,-1]
-                a.agentview[Agent.view_row-1]=[-1,-1,-1,-1,-1]
-                a.taskview[Agent.view_row-2]=[-1,-1,-1,-1,-1]
-                a.taskview[Agent.view_row-1]=[-1,-1,-1,-1,-1]
+                for j in range(Agent.view_col):
+                    a.agentview[Agent.view_row-2][j]=-1
+                    a.agentview[Agent.view_row-1][j]=-1
+                    a.taskview[Agent.view_row-2][j]=-1
+                    a.taskview[Agent.view_row-1][j]=-1
             if a.col==0:
-                a.agentview[0][0]=-1
-                a.agentview[1][0]=-1
-                a.agentview[2][0]=-1
-                a.agentview[3][0]=-1
-                a.agentview[4][0]=-1
-                a.taskview[0][0]=-1
-                a.taskview[1][0]=-1
-                a.taskview[2][0]=-1
-                a.taskview[3][0]=-1
-                a.taskview[4][0]=-1
-
-                a.agentview[0][1]=-1
-                a.agentview[1][1]=-1
-                a.agentview[2][1]=-1
-                a.agentview[3][1]=-1
-                a.agentview[4][1]=-1
-                a.taskview[0][1]=-1
-                a.taskview[1][1]=-1
-                a.taskview[2][1]=-1
-                a.taskview[3][1]=-1
-                a.taskview[4][1]=-1
+                 for i in range(Agent.view_row):
+                    a.agentview[i][0]=-1
+                    a.agentview[i][1]=-1
+                    a.taskview[i][0]=-1
+                    a.taskview[i][1]=-1
             if a.col==1:
-                a.agentview[0][0]=-1
-                a.agentview[1][0]=-1
-                a.agentview[2][0]=-1
-                a.agentview[3][0]=-1
-                a.agentview[4][0]=-1
-                a.taskview[0][0]=-1
-                a.taskview[1][0]=-1
-                a.taskview[2][0]=-1
-                a.taskview[3][0]=-1
-                a.taskview[4][0]=-1
-
-                a.agentview[0][Agent.view_col-1]=-1
-                a.agentview[1][Agent.view_col-1]=-1
-                a.agentview[2][Agent.view_col-1]=-1
-                a.agentview[3][Agent.view_col-1]=-1
-                a.agentview[4][Agent.view_col-1]=-1
-                a.taskview[0][Agent.view_col-1]=-1
-                a.taskview[1][Agent.view_col-1]=-1
-                a.taskview[2][Agent.view_col-1]=-1
-                a.taskview[3][Agent.view_col-1]=-1
-                a.taskview[4][Agent.view_col-1]=-1
+                for i in range(Agent.view_row):
+                    a.agentview[i][0]=-1
+                    a.agentview[i][Agent.view_col-1]=-1
+                    a.taskview[i][0]=-1
+                    a.taskview[i][Agent.view_col-1]=-1
             if a.col==Grid.col_num-1:
-                a.agentview[0][Agent.view_col-1]=-1
-                a.agentview[1][Agent.view_col-1]=-1
-                a.agentview[2][Agent.view_col-1]=-1
-                a.agentview[3][Agent.view_col-1]=-1
-                a.agentview[4][Agent.view_col-1]=-1
-                a.taskview[0][Agent.view_col-1]=-1
-                a.taskview[1][Agent.view_col-1]=-1
-                a.taskview[2][Agent.view_col-1]=-1
-                a.taskview[3][Agent.view_col-1]=-1
-                a.taskview[4][Agent.view_col-1]=-1
-
-                a.agentview[0][Agent.view_col-2]=-1
-                a.agentview[1][Agent.view_col-2]=-1
-                a.agentview[2][Agent.view_col-2]=-1
-                a.agentview[3][Agent.view_col-2]=-1
-                a.agentview[4][Agent.view_col-2]=-1
-                a.taskview[0][Agent.view_col-2]=-1
-                a.taskview[1][Agent.view_col-2]=-1
-                a.taskview[2][Agent.view_col-2]=-1
-                a.taskview[3][Agent.view_col-2]=-1
-                a.taskview[4][Agent.view_col-2]=-1
+                for i in range(Agent.view_row):
+                    a.agentview[i][Agent.view_col-2]=-1
+                    a.agentview[i][Agent.view_col-1]=-1
+                    a.taskview[i][Agent.view_col-2]=-1
+                    a.taskview[i][Agent.view_col-1]=-1
             for b in Agent.AgentList:
                 a.agentview[b.row+2-a.row][b.col+2-a.col]=1
             for c in TaskList.TaskList:
