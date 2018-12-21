@@ -13,7 +13,7 @@ class Agent:
         Agent.new_id += 1
         return Agent.new_id
 
-     def agentView():
+    def agentView():
         for a in Agent.AgentList:
             a.agentview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
             a.taskview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
@@ -23,13 +23,14 @@ class Agent:
                     a.agentview[1][j]=-1
                     a.taskview[0][j]=-1
                     a.taskview[1][j]=-1
-            if a.row==1:
+            if a.row-2<0:
                 for j in range(Agent.view_col):
                     a.agentview[0][j]=-1
-                    a.agentview[Agent.view_row-1][j]=-1
                     a.taskview[0][j]=-1
+            if a.row+2>Grid.row_num-1:
+                for j in range(Agent.view_col):
+                    a.agentview[Agent.view_row-1][j]=-1
                     a.taskview[Agent.view_row-1][j]=-1
-
             if a.row==Grid.row_num-1:
                 for j in range(Agent.view_col):
                     a.agentview[Agent.view_row-2][j]=-1
@@ -42,11 +43,13 @@ class Agent:
                     a.agentview[i][1]=-1
                     a.taskview[i][0]=-1
                     a.taskview[i][1]=-1
-            if a.col==1:
+            if a.col-2<0:
                 for i in range(Agent.view_row):
                     a.agentview[i][0]=-1
-                    a.agentview[i][Agent.view_col-1]=-1
                     a.taskview[i][0]=-1
+            if a.col+2<Grid.col_num-1:
+                for i in range(Agent.view_row):
+                    a.agentview[i][Agent.view_col-1]=-1
                     a.taskview[i][Agent.view_col-1]=-1
             if a.col==Grid.col_num-1:
                 for i in range(Agent.view_row):
@@ -55,9 +58,11 @@ class Agent:
                     a.taskview[i][Agent.view_col-2]=-1
                     a.taskview[i][Agent.view_col-1]=-1
             for b in Agent.AgentList:
-                a.agentview[b.row+2-a.row][b.col+2-a.col]=1
+                if b.row-a.row+2>0 and b.row-a.row+2<Agent.view_row and b.col-a.col+2>0 and b.col-a.col+2<Agent.view_col:
+                    a.agentview[b.row+2-a.row][b.col+2-a.col]=1
             for c in TaskList.TaskList:
-                a.taskview[c.row-a.row+2][c.col-a.col+2]=1
+                if c.row-a.row+2>0 and c.row-a.row+2<Agent.view_row and c.col-a.col+2>0 and c.col-a.col+2<Agent.view_col:
+                    a.taskview[c.row-a.row+2][c.col-a.col+2]=1
 
     def __init__(self, grid, row, col):
         self.id = Agent.__getNewID()
