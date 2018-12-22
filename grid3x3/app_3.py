@@ -41,21 +41,16 @@ for j in range(201):
                 Qlearning(testAgent.agentview, testAgent.taskview, x, 0.0)
                 tempQListID=qtimes
 
+            if j==0 or j==1 or j==2 or j==10 or j==20 or j==100:
+                print(i,":",x ,Qlearning.maxQ(testAgent),Qlearning.maxDir(testAgent))
+
             if(x=='u'):
-                if j==0 or j==1 or j==2 or j==10 or j==20 or j==50:
-                    print(i, ":u",Qlearning.maxQ(testAgent),Qlearning.maxDir(testAgent))
                 testAgent.move_up()
             elif(x=='d'):
-                if j==0 or j==1 or j==2 or j==10 or j==20 or j==50:
-                    print(i,":d",Qlearning.maxQ(testAgent),Qlearning.maxDir(testAgent))
                 testAgent.move_down()
             elif(x=='l'):
-                if j==0 or j==1 or j==2 or j==10 or j==20 or j==50:
-                    print(i,":l",Qlearning.maxQ(testAgent),Qlearning.maxDir(testAgent))
                 testAgent.move_left()
             elif(x=='r'):
-                if j==0 or j==1 or j==2 or j==10 or j==20 or j==50:
-                    print(i,":r",Qlearning.maxQ(testAgent),Qlearning.maxDir(testAgent))
                 testAgent.move_right()
             else:
                 print("Wrong command. Try again.")
