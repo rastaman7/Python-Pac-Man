@@ -15,8 +15,13 @@ class Agent:
 
     def agentView():
         for a in Agent.AgentList:
-            a.agentview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
-            a.taskview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+            a.agentview=[]
+            a.taskview=[]
+
+            for i in range(Agent.view_row):
+                a.agentview.append([0 for i in range(Agent.view_col)])
+                a.taskview.append([0 for i in range(Agent.view_col)])
+
             if a.row==0:
                 for j in range(Agent.view_col):
                     a.agentview[0][j]=-1
@@ -70,8 +75,12 @@ class Agent:
         self.row=row
         self.col=col
         self.score=0
-        self.agentview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
-        self.taskview=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+        self.agentview=[]
+        self.taskview=[]
+
+        for i in range(Agent.view_row):
+            self.agentview.append([0 for i in range(Agent.view_col)])
+            self.taskview.append([0 for i in range(Agent.view_col)])
 
         self.grid.cells[row][col]=1
         Agent.AgentList.append(self)
