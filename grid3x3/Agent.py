@@ -52,7 +52,7 @@ class Agent:
                 for i in range(Agent.view_row):
                     a.agentview[i][0]=-1
                     a.taskview[i][0]=-1
-            if a.col+2<Grid.col_num-1:
+            if a.col+2>Grid.col_num-1:
                 for i in range(Agent.view_row):
                     a.agentview[i][Agent.view_col-1]=-1
                     a.taskview[i][Agent.view_col-1]=-1
