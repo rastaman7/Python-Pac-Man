@@ -1,4 +1,4 @@
- from Grid import Grid
+from Grid import Grid
 from Agent import Agent
 from Task import Task
 from TaskList import TaskList
@@ -9,8 +9,8 @@ import random
 grid1 = Grid()
 grid2 = Grid()
 for i in range(10):
-    agent1=Agent(grid1,0,4)
-    task1=Task(grid2,4,0)
+    agent1=Agent(grid1,0,2)
+    task1=Task(grid2,2,0)
 
     Agent.agentView()
 
@@ -20,7 +20,7 @@ for i in range(10):
     GAMMA=0.2
 
     count=0
-    while count<10000:
+    while count<500:
         qtimes=0
         tempQListID=-1
         n=random.randint(0,Agent.new_id)
