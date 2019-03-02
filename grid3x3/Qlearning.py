@@ -50,12 +50,16 @@ class Qlearning:
             x=random.choice('udl')
         else:
             x=random.choice('udlr')
+        yesrand=x
 
-        yesrandom=x
         for a in Qlearning.QList:
             if a.agentview==agent.agentview and a.taskview==agent.taskview and a.qvalue>maxvalue2:
-                #print("not random")
                 x=a.direction
-        #if yesrandom==x:
+                #print("not random")
+        #if yesrand==x:
             #print("random")
         return x
+
+    def removeQList(self):
+        Qlearning.QList.remove(self)
+        del self
